@@ -31,3 +31,24 @@ const average = arr.reduce((acc, val, index, arr) => {
   }
 }, 0);
 console.log('average: ', average);
+//******************************************************************************************/
+// Double array elements
+const doubled = arr.reduce((acc, val) => {
+  acc.push(val * 2);
+  return acc;
+}, [])
+console.log('doubled: ', doubled);
+//******************************************************************************************/
+// Display above30 using reduce!
+const above30Reduce = arr.reduce((total, amount) => {
+    if (amount > 30) {
+      total.push(amount);
+    }
+    return total;
+  }, []);
+  console.log('above30 using reduce:', above30Reduce);// [ 41.85, 46.5 ]
+// Display above30 using filter!
+  const above30Filter = arr.filter(ele => {
+    if(ele > 30) return ele;
+  })
+  console.log('above30 using filter: ', above30Filter);
