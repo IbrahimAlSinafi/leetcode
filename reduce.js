@@ -52,3 +52,15 @@ const above30Reduce = arr.reduce((total, amount) => {
     if(ele > 30) return ele;
   })
   console.log('above30 using filter: ', above30Filter);
+//******************************************************************************************/
+/**
+ * Creating a Tally with the Reduce Method In JavaScript 
+ * Use it when: You have a collection of items and you want to know how many of each item are in the collection.
+*/
+const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ];
+  const count = fruitBasket.reduce((totally, ele) => {
+    if (totally[ele]) totally[ele] +=1;
+    else totally[ele] = 1
+    return totally
+  }, {});
+  console.log('repeated fruits: ', count)
