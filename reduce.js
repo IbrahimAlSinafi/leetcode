@@ -71,3 +71,20 @@ const flat = data.reduce((total, amount) => {
   return total.concat(amount);
 }, []);
 console.log('flat: ', flat); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+//******************************************************************************************/
+/**
+ * More often than not, information is nested in more complicated ways. For instance, 
+ * lets say we just want all the colors in the data variable below
+ */
+const datas = [
+  {a: 'happy', b: 'robin', c: ['blue','green']}, 
+  {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
+  {a: 'sad', b: 'goldfish', c: ['green','red']}
+];
+const colors = datas.reduce((total, amount) => {
+  amount.c.forEach( color => {
+      total.push(color);
+  })
+  return total;
+}, [])
+console.log('colors: ', colors) //['blue','green','green','black','orange','blue','green','red']
