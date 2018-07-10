@@ -63,4 +63,11 @@ const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 
     else totally[ele] = 1
     return totally
   }, {});
-  console.log('repeated fruits: ', count)
+  console.log('repeated fruits: ', count);
+//******************************************************************************************/
+//Flattening an array of arrays with the Reduce Method In JavaScript​​
+const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const flat = data.reduce((total, amount) => {
+  return total.concat(amount);
+}, []);
+console.log('flat: ', flat); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
