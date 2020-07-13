@@ -29,11 +29,6 @@ Both numbers with value 2 are both considered as second maximum.
 var thirdMax = function(nums) {
     const sortedUniqueArr = nums
       .sort((a,b) => b-a)
-      .reduce((acc, val) => {
-      return acc.includes(val)? acc: [...acc, val];
-    }, [])
-
-    if (sortedUniqueArr.length >= 3) return sortedUniqueArr[2]
-    return sortedUniqueArr[0]
-    
+      .reduce((acc, val) => acc.includes(val)? acc: [...acc, val], []);
+      return sortedUniqueArr.length >= 3 ? sortedUniqueArr[2]: sortedUniqueArr[0];    
 };
