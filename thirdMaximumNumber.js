@@ -26,26 +26,9 @@ Both numbers with value 2 are both considered as second maximum.
  * @param {number[]} nums
  * @return {number}
  */
-var thirdMax = function(arr) {
-  let first = arr[0]; 
-  for (let i = 1; i < arr.length ; i++) 
-      if (arr[i] > first) 
-          first = arr[i]; 
-
-  // Find second largest element 
-  let second = -1.7976931348623157; 
-  for (let i = 0; i < arr.length ; i++) 
-      if (arr[i] > second && arr[i] < first) 
-          second = arr[i]; 
-
-  // Find third largest element 
-  let third = -1.7976931348623157; 
-  for (let i = 0; i < arr.length ; i++) 
-      if (arr[i] > third && arr[i] < second) 
-          third = arr[i]; 
-
-  console.log(first, second, third)
-  return (third === -1.7976931348623157)? first: third;
-};
-
-console.log(thirdMax([2, 2, 3, 1]))
+var thirdMax = function(nums) {
+  const sortedUniqueArr = nums
+    .sort((a,b) => b-a)
+    .reduce((acc, val) => acc.includes(val)? acc: [...acc, val], []);
+    return sortedUniqueArr.length >= 3 ? sortedUniqueArr[2]: sortedUniqueArr[0];    
+}
