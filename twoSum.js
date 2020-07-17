@@ -28,3 +28,20 @@ var twoSum = function(nums, target) {
   }
   return indices;
 }
+
+
+// optimization 
+
+var twoSum = function(nums, target) {
+  let hash = {};
+	for (let i = 0; i < nums.length; i++) {
+		let thisNum = nums[i];
+		hash[thisNum] = i;
+	}
+  for (let index=0; index<nums.length; index ++) {
+    const needed = target - nums[index];
+    if(hash.hasOwnProperty(needed) && hash[needed] !== index) {
+      return [index, hash[needed]];
+    }
+  }
+}
