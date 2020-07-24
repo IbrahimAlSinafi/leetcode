@@ -29,16 +29,23 @@ Output: false
  * @return {boolean}
  */
 var buddyStrings = function(A, B) {
-    let swap = '';
-    let bool = false;
-    for (let i=0; i<B.length; i++){
-      if (i <= B.length -2){
-        swap = B[i+1] + B[i]
-        if (A.includes(swap)) {
-          bool = true;
-          i = B.length;
-        };
+  let arr = [...A]; // makes it an array for easy swapping
+  let swap = '';
+  let bool = false;
+  for (let i=0; i<arr.length; i++){
+    if (i <= arr.length -2){ // don't swap once you reach last character!
+      swap = arr[i]
+      arr[i] = arr[i+1]
+      arr[i+1] = swap
+      let stringA = arr.join('') // put it back as a string
+      if (stringA === B) {
+        console.log('in')
+        bool = true;
+        i = arr.length;
+      } else{ // reset the arr characters to precede with swapping
+        arr = [...A]
       }
-      return bool;
     }
-  };
+  }
+  return bool;
+}
